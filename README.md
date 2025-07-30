@@ -76,10 +76,10 @@ ml_project/
 | Data Source     | Kaggle Dataset ([Link](https://www.kaggle.com/datasets/gauravtopre/bank-customer-churn-dataset)) |
 | Data Handling   | Pandas, Scikit-learn |
 | Experiment Tracking | MLflow |
-| Data Versioning | DVC |
+| Data Versioning | DVC + Azure Blob |
 | Source Control  | Git + GitHub |
 | Containerization | Docker |
-| Cloud Deployment | AWS EC2 + ECR |
+| Cloud Deployment | Azure VMs + ACR |
 | CI/CD Automation | GitHub Actions |
 | Monitoring & Logging | Custom Logger + Exception Handling |
 

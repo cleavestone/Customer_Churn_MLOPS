@@ -8,7 +8,41 @@ This is an end-to-end **Machine Learning Operations (MLOps)** project focused on
 
 Customer churn is a critical problem in industries like telecom, banking, and SaaS, where retaining existing customers is more cost-effective than acquiring new ones. This project aims to predict which customers are at risk of leaving, enabling proactive retention strategies.
 
+We use data from **ABC Multistate Bank**, which includes demographic and account-related information for each customer. The objective is to build a predictive model that accurately determines whether a customer will churn (leave the bank) based on their profile.
+
 ---
+
+## 📂 Project Highlights
+
+- ✅ Modular ML codebase (components for ingestion, preprocessing, training, and evaluation)
+- 🧪 Experiment tracking using **MLflow**
+- 📦 Data versioning with **DVC**
+- 🧑‍💻 Code versioning & collaboration using **Git + GitHub**
+- 🐳 Containerized using **Docker**
+- ☁️ Deployment-ready with **Azure Blob Storage**, **CI/CD workflows**, and cloud infrastructure
+- 📈 Model & data drift monitoring with **Grafana**
+- 📋 Logging and exception handling implemented for reliability
+
+---
+
+## 📊 Data Dictionary
+
+The dataset contains the following columns:
+
+| Column Name        | Description                                                                 | Data Type     | Notes                     |
+|--------------------|-----------------------------------------------------------------------------|---------------|---------------------------|
+| `customer_id`      | Unique identifier for each customer                                          | String        | Unused in modeling        |
+| `credit_score`     | Customer’s credit score                                                      | Integer       | Used as input             |
+| `country`          | Country of residence (e.g., France, Germany, Spain)                          | Categorical   | Used as input             |
+| `gender`           | Customer gender (Male/Female)                                                | Categorical   | Used as input             |
+| `age`              | Customer age in years                                                        | Integer       | Used as input             |
+| `tenure`           | Number of years the customer has been with the bank                          | Integer       | Used as input             |
+| `balance`          | Account balance in dollars                                                   | Float         | Used as input             |
+| `products_number`  | Number of banking products used by the customer                              | Integer       | Used as input             |
+| `credit_card`      | Whether the customer has a credit card (1 = Yes, 0 = No)                     | Binary        | Used as input             |
+| `active_member`    | Whether the customer actively uses their account (1 = Yes, 0 = No)           | Binary        | Used as input             |
+| `estimated_salary` | Estimated annual salary of the customer                                      | Float         | Used as input             |
+| `churn`            | Target variable (1 = Customer churned, 0 = Stayed with the bank)             | Binary        | **Target** for prediction |
 
 ## ⚙️ Project Architecture
 

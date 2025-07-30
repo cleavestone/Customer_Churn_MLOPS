@@ -119,20 +119,6 @@ ml_project/
 
 ---
 
-## ✅ Key Features
-
-- 📥 **Data Ingestion**: Download and store raw data from Kaggle using `kagglehub`
-- 🧹 **Data Preprocessing**: Clean, transform, and handle missing values (to be implemented)
-- ⚙️ **Feature Engineering**: Create meaningful features for better model performance
-- 🧪 **Model Training**: Train and validate using different ML algorithms
-- 📊 **Evaluation**: Log metrics using **MLflow**
-- 🧠 **Model Serving**: Serve the trained model via API (FastAPI/Flask)
-- 🗃️ **Data/Model Versioning**: Track datasets and model changes using **DVC**
-- 🔁 **Automation**: Enable CI/CD pipelines for test + deployment
-- ☁️ **Deployment**: Deploy via Docker containers on **AWS EC2**
-- 🧾 **Logging & Monitoring**: Custom logging and error handling integrated
-
----
 
 ## 🚧 Current Progress
 

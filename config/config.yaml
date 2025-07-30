@@ -1,0 +1,5 @@
+# raw data path
+raw_data_path: data/raw/churn.csv
+train_path: data/train/train.csv
+test_path: data/test/test.csv
+val_path: data/validation/val.csv

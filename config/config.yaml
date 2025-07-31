@@ -1,5 +1,23 @@
 # raw data path
 raw_data_path: data/raw/churn.csv
+
 train_path: data/train/train.csv
+
 test_path: data/test/test.csv
+
 val_path: data/validation/val.csv
+
+numerical_columns: ['credit_score','age','tenure','balance','products_number','credit_card','active_member','estimated_salary']
+
+categorical_columns: ['country','gender']
+
+target_column: 'churn'
+
+preprocessor_obj: 'model/preprocessor.pkl'
+
+processed_X_path_csv: 'data/processed/X_processed.csv'
+
+processed_y_path_csv: 'data/processed/y.csv'
+
+trained_model_path: 'artifacts/models/random_forest_model.pkl'
+

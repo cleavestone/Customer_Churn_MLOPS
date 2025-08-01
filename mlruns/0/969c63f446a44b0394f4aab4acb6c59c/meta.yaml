@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Hp/Desktop/CustomerChurn/mlruns/0/969c63f446a44b0394f4aab4acb6c59c/artifacts
+end_time: 1754048924365
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 969c63f446a44b0394f4aab4acb6c59c
+run_name: nosy-finch-626
+run_uuid: 969c63f446a44b0394f4aab4acb6c59c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754048898129
+status: 3
+tags: []
+user_id: Hp

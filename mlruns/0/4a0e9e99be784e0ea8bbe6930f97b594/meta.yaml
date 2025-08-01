@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Hp/Desktop/CustomerChurn/mlruns/0/4a0e9e99be784e0ea8bbe6930f97b594/artifacts
+end_time: 1754047667046
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4a0e9e99be784e0ea8bbe6930f97b594
+run_name: secretive-dog-671
+run_uuid: 4a0e9e99be784e0ea8bbe6930f97b594
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754047635751
+status: 3
+tags: []
+user_id: Hp

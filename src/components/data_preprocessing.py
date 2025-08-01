@@ -28,6 +28,7 @@ def handle_imbalance(path: str = configs['train_path']):
         ros = RandomUnderSampler(random_state=42)
         X_resampled, y_resampled = ros.fit_resample(X_train, y_train)
         
+        
         return X_resampled, y_resampled
     
     except Exception as e:
@@ -81,26 +82,23 @@ def run_preprocessing():
 
         # Step 1: Handle class imbalance
         X_resampled, y_resampled = handle_imbalance()
-        
+
         # drop customer_id column
         X_resampled=X_resampled.drop(columns=configs['columns_to_drop'])
 
         # Step 2: Build preprocessor and save it
-        preprocessor = get_preprocessor(save=True)
+        preprocessor = get_preprocessor(save=False)
 
         # Step 3: Fit and transform X
         logger.info("Fitting and transforming training data...")
         X_processed = preprocessor.fit_transform(X_resampled)
 
+        # ✅ Save the fitted preprocessor
+        joblib.dump(preprocessor, configs['preprocessor_obj'])
+        logger.info(f"Fitted preprocessor saved at {configs['preprocessor_obj']}")
+
         # Step 4: Convert to DataFrame with correct column names
-        cat_cols = configs['categorical_columns']
-        ohe = preprocessor.named_transformers_['cat'].named_steps['onehot']
-        ohe_feature_names = ohe.get_feature_names_out(cat_cols)
-
-        num_cols = [col for col in X_resampled.columns if col not in cat_cols]
-        all_columns = list(ohe_feature_names) + num_cols
-
-        X_df = pd.DataFrame(X_processed, columns=all_columns)
+        X_df = pd.DataFrame(X_processed, columns=configs['all_columns'])
         y_df = pd.DataFrame(y_resampled, columns=[configs['target_column']])
 
         # Step 5: Save to CSV

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Hp/Desktop/CustomerChurn/mlruns/0/c440a811ceec461f821bbad14e078326/artifacts
+end_time: 1754044315193
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c440a811ceec461f821bbad14e078326
+run_name: magnificent-bug-403
+run_uuid: c440a811ceec461f821bbad14e078326
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754044294531
+status: 3
+tags: []
+user_id: Hp

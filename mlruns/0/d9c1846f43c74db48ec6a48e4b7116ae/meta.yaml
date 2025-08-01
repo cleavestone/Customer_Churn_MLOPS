@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Hp/Desktop/CustomerChurn/mlruns/0/d9c1846f43c74db48ec6a48e4b7116ae/artifacts
+end_time: 1754057063088
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d9c1846f43c74db48ec6a48e4b7116ae
+run_name: judicious-worm-257
+run_uuid: d9c1846f43c74db48ec6a48e4b7116ae
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754057040353
+status: 3
+tags: []
+user_id: Hp

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Hp/Desktop/CustomerChurn/mlruns/0/2db83dc66cfb40ba87185f5e57d96239/artifacts
+end_time: 1754047934329
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2db83dc66cfb40ba87185f5e57d96239
+run_name: vaunted-loon-818
+run_uuid: 2db83dc66cfb40ba87185f5e57d96239
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754047909335
+status: 3
+tags: []
+user_id: Hp

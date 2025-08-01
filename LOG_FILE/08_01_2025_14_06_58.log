@@ -1,0 +1,56 @@
+[2025-08-01 14:07:06,901] 12 utils.logging - INFO - downloading data from kaggle...
+[2025-08-01 14:07:08,937] 16 utils.logging - INFO - saving raw data...
+[2025-08-01 14:07:09,051] 20 utils.logging - INFO - splitting into train, test and validation
+[2025-08-01 14:07:09,074] 23 utils.logging - INFO - saving train, test and validation
+[2025-08-01 14:07:09,175] 20 utils.logging - INFO - Running preprocessing pipeline...
+[2025-08-01 14:07:09,176] 80 utils.logging - INFO - Starting preprocessing pipeline...
+[2025-08-01 14:07:09,176] 22 utils.logging - INFO - Reading training data for imbalance handling...
+[2025-08-01 14:07:09,215] 27 utils.logging - INFO - Handling imbalance using RandomOverSampler...
+[2025-08-01 14:07:09,224] 43 utils.logging - INFO - Building preprocessor pipeline...
+[2025-08-01 14:07:09,224] 92 utils.logging - INFO - Fitting and transforming training data...
+[2025-08-01 14:07:09,269] 97 utils.logging - INFO - Fitted preprocessor saved at model/preprocessor.pkl
+[2025-08-01 14:07:09,356] 119 utils.logging - INFO - Saved preprocessed X to data/processed/X_processed.csv
+[2025-08-01 14:07:09,356] 120 utils.logging - INFO - Saved target y to data/processed/y.csv
+[2025-08-01 14:07:09,356] 23 utils.logging - INFO - Training model ....
+[2025-08-01 14:07:09,356] 19 utils.logging - INFO - \U0001f4e5 Loading training data...
+[2025-08-01 14:07:09,389] 23 utils.logging - INFO - \U0001f680 Starting MLflow run...
+[2025-08-01 14:07:47,575] 46 utils.logging - INFO - \u2705 RandomForestClassifier trained and logged to MLflow.
+[2025-08-01 14:07:47,585] 26 utils.logging - INFO - Evaluating the model
+[2025-08-01 14:07:47,586] 12 utils.logging - INFO - \U0001f50d Loading validation data...
+[2025-08-01 14:07:47,639] 17 utils.logging - INFO - \U0001f4e6 Loading preprocessor and transforming validation data...
+[2025-08-01 14:07:47,696] 23 utils.logging - INFO - \U0001f4e5 Loading best model from MLflow...
+[2025-08-01 14:07:48,003] 27 utils.logging - INFO - \U0001f916 Making predictions...
+[2025-08-01 14:07:48,007] 63 utils.logging - ERROR - \u274c Error occurred during evaluation.
+Traceback (most recent call last):
+  File "C:\Users\Hp\Desktop\CustomerChurn\src\components\evaluation.py", line 28, in evaluate_model
+    y_pred = model.predict(X_val_df)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hp\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\ensemble\_forest.py", line 820, in predict
+    proba = self.predict_proba(X)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hp\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\ensemble\_forest.py", line 862, in predict_proba
+    X = self._validate_X_predict(X)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hp\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\ensemble\_forest.py", line 602, in _validate_X_predict
+    X = self._validate_data(X, dtype=DTYPE, accept_sparse="csr", reset=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hp\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "C:\Users\Hp\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- cat__country_France
+- cat__country_Germany
+- cat__country_Spain
+- cat__gender_Female
+- cat__gender_Male
+- ...
+Feature names seen at fit time, yet now missing:
+- active_member
+- age
+- balance
+- country_France
+- country_Germany
+- ...
+

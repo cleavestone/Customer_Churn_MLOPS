@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Hp/Desktop/CustomerChurn/mlruns/0/ba92ecb956be4a68b6759c7a5c4c561d/artifacts
+end_time: 1754058424955
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ba92ecb956be4a68b6759c7a5c4c561d
+run_name: agreeable-crab-668
+run_uuid: ba92ecb956be4a68b6759c7a5c4c561d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754058403646
+status: 3
+tags: []
+user_id: Hp

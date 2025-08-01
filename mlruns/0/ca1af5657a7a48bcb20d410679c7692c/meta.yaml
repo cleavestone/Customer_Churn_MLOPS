@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Hp/Desktop/CustomerChurn/mlruns/0/ca1af5657a7a48bcb20d410679c7692c/artifacts
+end_time: 1754052018853
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ca1af5657a7a48bcb20d410679c7692c
+run_name: indecisive-yak-10
+run_uuid: ca1af5657a7a48bcb20d410679c7692c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754051993019
+status: 3
+tags: []
+user_id: Hp

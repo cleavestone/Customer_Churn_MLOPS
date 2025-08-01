@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Hp/Desktop/CustomerChurn/mlruns/0/ea7004918f1943429af182e47ba143de/artifacts
+end_time: 1754049270563
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ea7004918f1943429af182e47ba143de
+run_name: model_evaluation
+run_uuid: ea7004918f1943429af182e47ba143de
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754049268463
+status: 3
+tags: []
+user_id: Hp

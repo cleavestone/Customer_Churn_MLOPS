@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Hp/Desktop/CustomerChurn/mlruns/0/4e3b95020dd94254bbbd487d3d90f266/artifacts
+end_time: 1754049267546
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4e3b95020dd94254bbbd487d3d90f266
+run_name: unequaled-seal-296
+run_uuid: 4e3b95020dd94254bbbd487d3d90f266
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754049216218
+status: 3
+tags: []
+user_id: Hp

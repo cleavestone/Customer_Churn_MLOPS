@@ -1,0 +1,20 @@
+artifact_path: model
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.2
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.2.2
+mlflow_version: 2.20.0
+model_size_bytes: 17735571
+model_uuid: 6632ec2cde7b4489ad95ac8d5a023b26
+run_id: d9c1846f43c74db48ec6a48e4b7116ae
+utc_time_created: '2025-08-01 14:04:02.752395'

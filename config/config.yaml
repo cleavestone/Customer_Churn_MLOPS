@@ -29,4 +29,8 @@ best_model:
     n_estimators: 100
     random_state: 42
 
+best_run_id: eb9f231e274b43288d3cb42eb22c69b7
+
+all_columns: ['country_France', 'country_Germany', 'country_Spain', 'gender_Female', 'gender_Male', 'credit_score', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']
+
 

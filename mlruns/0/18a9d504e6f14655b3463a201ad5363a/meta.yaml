@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Hp/Desktop/CustomerChurn/mlruns/0/18a9d504e6f14655b3463a201ad5363a/artifacts
+end_time: 1754043929487
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 18a9d504e6f14655b3463a201ad5363a
+run_name: welcoming-perch-425
+run_uuid: 18a9d504e6f14655b3463a201ad5363a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754043896973
+status: 3
+tags: []
+user_id: Hp

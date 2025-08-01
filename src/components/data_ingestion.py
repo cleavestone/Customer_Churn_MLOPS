@@ -18,15 +18,13 @@ def data_ingestion(path:str='gauravtopre/bank-customer-churn-dataset'):
         
         # spliting into train, test, val
         logger.info("splitting into train, test and validation")
-        temp,test=train_test_split(df,test_size=0.2,random_state=42)
-        train,val=train_test_split(temp,test_size=0.2,random_state=42)
-        logger.info("saving train, test and validation")
+        train,val=train_test_split(df,test_size=0.2,random_state=42)
+        #train,val=train_test_split(temp,test_size=0.2,random_state=42)
+        logger.info("saving train,validation")
 
 
         # save train
         train.to_csv(configs['train_path'],index=False)
-        # save test
-        test.to_csv(configs['test_path'],index=False)
         # save validation
         val.to_csv(configs['val_path'],index=False)
 

@@ -21,3 +21,12 @@ processed_y_path_csv: 'data/processed/y.csv'
 
 trained_model_path: 'artifacts/models/random_forest_model.pkl'
 
+columns_to_drop: customer_id
+
+best_model:
+  name: RandomForestClassifier
+  hyperparameters:
+    n_estimators: 100
+    random_state: 42
+
+

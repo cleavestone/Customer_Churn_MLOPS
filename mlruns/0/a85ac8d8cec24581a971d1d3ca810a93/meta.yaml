@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Hp/Desktop/CustomerChurn/mlruns/0/a85ac8d8cec24581a971d1d3ca810a93/artifacts
+end_time: 1754041640246
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a85ac8d8cec24581a971d1d3ca810a93
+run_name: learned-dove-162
+run_uuid: a85ac8d8cec24581a971d1d3ca810a93
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754041640122
+status: 4
+tags: []
+user_id: Hp

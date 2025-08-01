@@ -2,7 +2,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import OneHotEncoder
-from imblearn.over_sampling import RandomOverSampler
+from imblearn.under_sampling import RandomUnderSampler
 import pandas as pd
 from utils.logging import logger
 from utils.exceptions import CustomException
@@ -25,7 +25,7 @@ def handle_imbalance(path: str = configs['train_path']):
         y_train = df[configs['target_column']]
         
         logger.info("Handling imbalance using RandomOverSampler...")
-        ros = RandomOverSampler(random_state=42)
+        ros = RandomUnderSampler(random_state=42)
         X_resampled, y_resampled = ros.fit_resample(X_train, y_train)
         
         return X_resampled, y_resampled
@@ -76,10 +76,14 @@ def run_preprocessing():
     - Saves processed X and y as CSVs
     """
     try:
+        
         logger.info("Starting preprocessing pipeline...")
 
         # Step 1: Handle class imbalance
         X_resampled, y_resampled = handle_imbalance()
+        
+        # drop customer_id column
+        X_resampled=X_resampled.drop(columns=configs['columns_to_drop'])
 
         # Step 2: Build preprocessor and save it
         preprocessor = get_preprocessor(save=True)

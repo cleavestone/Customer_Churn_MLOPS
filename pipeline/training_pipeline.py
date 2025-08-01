@@ -1,5 +1,6 @@
 from src.components.data_preprocessing import run_preprocessing
 from src.components.data_ingestion import data_ingestion
+from src.components.model_trainer import train_model_with_mlflow
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report
 import joblib
@@ -14,8 +15,12 @@ def train_pipeline():
     try:
         # load data
         data_ingestion()
-        logger.info("Running training pipeline...")
+        # handling class imbalance and preprocessing
+        logger.info("Running preprocessing pipeline...")
         run_preprocessing()
+        # Training model
+        logger.info("Training model ....")
+        train_model_with_mlflow()
 
     except Exception as e:
         raise CustomException("Training pipeline failed", e)

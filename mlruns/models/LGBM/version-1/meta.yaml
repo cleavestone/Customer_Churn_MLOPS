@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1754124620908
+current_stage: None
+description: ''
+last_updated_timestamp: 1754124620908
+name: LGBM
+run_id: d3fa1277ff7e4af5b2aeae091a444551
+run_link: ''
+source: file:///C:/Users/Hp/Desktop/CustomerChurn/mlruns/0/d3fa1277ff7e4af5b2aeae091a444551/artifacts/model
+status: READY
+status_message: null
+storage_location: file:///C:/Users/Hp/Desktop/CustomerChurn/mlruns/0/d3fa1277ff7e4af5b2aeae091a444551/artifacts/model
+user_id: null
+version: 1

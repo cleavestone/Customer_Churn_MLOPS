@@ -6,7 +6,7 @@ from utils.exceptions import CustomException
 from utils.helper import configs
 import inspect
 import sys
-from sklearn.ensemble import RandomForestClassifier
+from lightgbm import LGBMClassifier
 
 
 def train_model_with_mlflow(X_path: str = configs['processed_X_path_csv'],

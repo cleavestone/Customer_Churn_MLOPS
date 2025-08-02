@@ -1,7 +1,7 @@
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import OrdinalEncoder, StandardScaler, FunctionTransformer
 from imblearn.under_sampling import RandomUnderSampler
 import pandas as pd
 from utils.logging import logger
@@ -27,7 +27,7 @@ def handle_imbalance(path: str = configs['train_path']):
         logger.info("Handling imbalance using RandomOverSampler...")
         ros = RandomUnderSampler(random_state=42)
         X_resampled, y_resampled = ros.fit_resample(X_train, y_train)
-        
+
         
         return X_resampled, y_resampled
     
@@ -35,7 +35,8 @@ def handle_imbalance(path: str = configs['train_path']):
         raise CustomException('Error while handling imbalance', e)
 
 
-def get_preprocessor(save_path: str = configs['preprocessor_obj'],save:bool=True):
+def get_preprocessor():
+    save_path = configs['preprocessor_obj']
     """
     Builds a preprocessor pipeline with imputation and one-hot encoding.
     Saves the fitted preprocessor if save=True.
@@ -47,7 +48,7 @@ def get_preprocessor(save_path: str = configs['preprocessor_obj'],save:bool=True
         
         cat_pipeline = Pipeline(steps=[
             ('imputer', SimpleImputer(strategy='most_frequent')),
-            ('onehot', OneHotEncoder(handle_unknown='ignore', sparse=False))
+            ('ordinal', OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1))
         ])
         
         preprocessor = ColumnTransformer(
@@ -57,11 +58,6 @@ def get_preprocessor(save_path: str = configs['preprocessor_obj'],save:bool=True
             remainder='passthrough'  # Keep numerical features
         )
 
-        if save:
-            os.makedirs(os.path.dirname(save_path), exist_ok=True)
-            joblib.dump(preprocessor, save_path)
-            logger.info(f"Preprocessor saved at {save_path}")
-        
         return preprocessor
 
     except Exception as e:
@@ -87,7 +83,7 @@ def run_preprocessing():
         X_resampled=X_resampled.drop(columns=configs['columns_to_drop'])
 
         # Step 2: Build preprocessor and save it
-        preprocessor = get_preprocessor(save=False)
+        preprocessor = get_preprocessor()
 
         # Step 3: Fit and transform X
         logger.info("Fitting and transforming training data...")

@@ -98,6 +98,54 @@ ml_project/
         └── ci-cd.yml
 
 ```
+## ✅ Model Training & Evaluation
+
+After completing preprocessing and feature engineering, multiple models were trained and compared:
+
+- 🎯 **Random Forest**
+- 🎯 **XGBoostClassifier**
+- 🎯 **CatBoostClassifier**
+- ✅ **LightGBMClassifier** *(Selected)*
+
+The **LightGBMClassifier** was selected as the final model due to its superior **recall and precision** for the **positive class** (i.e., customers who churned).
+
+---
+
+### 📊 Evaluation Metrics (Test Set)
+
+| Metric            | Score    |
+|-------------------|----------|
+| Accuracy          | 0.7870   |
+| Precision         | 0.4746   |
+| Recall            | 0.7837   |
+| F1 Score          | 0.5912   |
+| ROC AUC Score     | 0.8604   |
+
+---
+
+### 📋 Classification Report
+
+          precision    recall  f1-score   support
+
+       0       0.94      0.79      0.86      1607
+       1       0.47      0.78      0.59       393
+
+accuracy                           0.79      2000
+
+
+✅ The model correctly identified **308 out of 393** churning customers.
+
+---
+
+### 📦 MLflow Tracking
+
+- ✅ All models and metrics logged to **MLflow**
+- ✅ Best-performing model (**LightGBMClassifier**) **registered**
+- ✅ Tracked metrics: Accuracy, Precision, Recall, F1 Score, ROC AUC
+
+
+
+
 
 
 ---

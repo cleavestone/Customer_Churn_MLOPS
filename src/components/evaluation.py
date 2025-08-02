@@ -6,6 +6,8 @@ from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_sc
 from utils.helper import configs
 from utils.logging import logger
 from utils.exceptions import CustomException
+import mlflow
+from mlflow.sklearn import load_model
 
 def evaluate_model():
     try:
@@ -22,8 +24,14 @@ def evaluate_model():
         X_val_df = pd.DataFrame(X_val_transformed, columns=configs['all_columns'])
 
         logger.info("📥 Loading best model from MLflow...")
-        logged_model_uri = f"runs:/{configs['best_run_id']}/model"
-        model = mlflow.sklearn.load_model(logged_model_uri)
+        logged_model = configs['logged_model']
+
+        # Load model as a PyFuncModel.
+        model = mlflow.pyfunc.load_model(logged_model)
+
+        #logged_model_uri = f"runs:/{configs['best_run_id']}/model"
+        #model = mlflow.sklearn.load_model(logged_model_uri)
+        
         print(X_val_df)
 
         logger.info("🤖 Making predictions...")
@@ -49,7 +57,7 @@ def evaluate_model():
             mlflow.log_artifact("confusion_matrix.csv")
 
             report_df = pd.DataFrame(report).transpose()
-            report_df.to_csv("classification_report.csv")
+            #report_df.to_csv("classification_report.csv")
             mlflow.log_artifact("classification_report.csv")
 
         logger.info("✅ Evaluation complete.")

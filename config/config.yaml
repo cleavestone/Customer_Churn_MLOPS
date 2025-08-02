@@ -24,13 +24,14 @@ trained_model_path: 'artifacts/models/random_forest_model.pkl'
 columns_to_drop: customer_id
 
 best_model:
-  name: RandomForestClassifier
+  name: LGBMClassifier
   hyperparameters:
     n_estimators: 100
     random_state: 42
+    verbosity: -1
 
-best_run_id: eb9f231e274b43288d3cb42eb22c69b7
+logged_model: 'runs:/d3fa1277ff7e4af5b2aeae091a444551/model'
 
-all_columns: ['country_France', 'country_Germany', 'country_Spain', 'gender_Female', 'gender_Male', 'credit_score', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']
+all_columns: ['credit_score', 'country', 'gender', 'age', 'tenure', 'balance','products_number', 'credit_card', 'active_member', 'estimated_salary']
 
 

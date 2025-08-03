@@ -1,3 +1,6 @@
+
+![Demo](static/video/Customer Churn Predictor - Google Chrome 2025-08-03 10-43-24.gif)
+
 # 🧠 Customer Churn Prediction – End-to-End MLOps Project
 
 This is an end-to-end **Machine Learning Operations (MLOps)** project focused on predicting **customer churn** using a real-world dataset. The goal is to develop a robust ML pipeline—from data ingestion to deployment—that can be monitored, versioned, and maintained in production environments.

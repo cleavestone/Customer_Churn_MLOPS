@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Churn Predictor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <!-- Background particles -->
+    <div class="particles"></div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Main Content -->
+            <main class="col-lg-10 col-xl-8">
+                <div class="text-center mb-5">
+                    <h1 class="display-4 mb-3">🧠 AI Churn Predictor</h1>
+                    <p class="lead">
+                        Harness the power of advanced machine learning to predict customer churn with precision. 
+                        Simply input customer profile data below and receive intelligent predictions to enhance your retention strategies.
+                    </p>
+                </div>
+
+                <!-- Form Section -->
+                <div class="form-container">
+                    <form action="/predict" method="post" class="row g-4" id="churnForm">
+                        {% for field in ['credit_score', 'age', 'tenure', 'balance', 'products_number', 'estimated_salary'] %}
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                {% if field == 'credit_score' %}💳 Credit Score
+                                {% elif field == 'age' %}🎂 Age
+                                {% elif field == 'tenure' %}⏰ Tenure (Years)
+                                {% elif field == 'balance' %}💰 Balance
+                                {% elif field == 'products_number' %}📦 Number of Products
+                                {% elif field == 'estimated_salary' %}💵 Estimated Salary
+                                {% endif %}
+                            </label>
+                            <input type="number" 
+                                   name="{{ field }}" 
+                                   class="form-control" 
+                                   placeholder="{% if field == 'credit_score' %}e.g. 750
+                                              {% elif field == 'age' %}e.g. 35
+                                              {% elif field == 'tenure' %}e.g. 5
+                                              {% elif field == 'balance' %}e.g. 50000
+                                              {% elif field == 'products_number' %}e.g. 2
+                                              {% elif field == 'estimated_salary' %}e.g. 75000
+                                              {% endif %}"
+                                   {% if field == 'balance' or field == 'estimated_salary' %}step="0.01"{% endif %}
+                                   required>
+                        </div>
+                        {% endfor %}
+
+                        <div class="col-md-6">
+                            <label class="form-label">🌍 Country</label>
+                            <select name="country" class="form-select" required>
+                                <option value="">Select Country</option>
+                                <option value="France">🇫🇷 France</option>
+                                <option value="Germany">🇩🇪 Germany</option>
+                                <option value="Spain">🇪🇸 Spain</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">👤 Gender</label>
+                            <select name="gender" class="form-select" required>
+                                <option value="">Select Gender</option>
+                                <option value="Male">👨 Male</option>
+                                <option value="Female">👩 Female</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">💳 Has Credit Card</label>
+                            <select name="credit_card" class="form-select" required>
+                                <option value="">Select Option</option>
+                                <option value="1">✅ Yes</option>
+                                <option value="0">❌ No</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">🎯 Active Member</label>
+                            <select name="active_member" class="form-select" required>
+                                <option value="">Select Option</option>
+                                <option value="1">✅ Yes</option>
+                                <option value="0">❌ No</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12 text-center mt-5">
+                            <button type="submit" class="btn btn-predict">
+                                🔮 Predict Churn
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Create animated particles
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Add loading state to form submission
+        document.getElementById('churnForm').addEventListener('submit', function(e) {
+            const submitBtn = this.querySelector('.btn-predict');
+            submitBtn.classList.add('loading');
+            submitBtn.innerHTML = '';
+        });
+
+        // Initialize particles when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+        });
+    </script>
+</body>
+</html>

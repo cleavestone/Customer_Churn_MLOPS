@@ -1,2 +1,7 @@
-venv.env
+venv
 .env
+--is-linux
+--name
+--resource-group
+-sku
+AzureCLI.msi

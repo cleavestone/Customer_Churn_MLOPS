@@ -1,5 +1,5 @@
 
-![Demo](static/video/Customer Churn Predictor - Google Chrome 2025-08-03 10-43-24.gif)
+![Demo](static/video/churn_demo.gif)
 
 # 🧠 Customer Churn Prediction – End-to-End MLOps Project
 

@@ -1,4 +1,5 @@
 
+## App Demo
 ![Demo](static/video/churn_demo.gif)
 
 # 🧠 Customer Churn Prediction – End-to-End MLOps Project

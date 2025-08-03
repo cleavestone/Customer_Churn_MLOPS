@@ -5,3 +5,5 @@ venv
 --resource-group
 -sku
 AzureCLI.msi
+azure-credentials.json
+--sku

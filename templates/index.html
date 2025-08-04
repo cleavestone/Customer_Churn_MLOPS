@@ -33,12 +33,12 @@
                         {% for field in ['credit_score', 'age', 'tenure', 'balance', 'products_number', 'estimated_salary'] %}
                         <div class="col-md-6">
                             <label class="form-label">
-                                {% if field == 'credit_score' %}💳 Credit Score
-                                {% elif field == 'age' %}🎂 Age
-                                {% elif field == 'tenure' %}⏰ Tenure (Years)
-                                {% elif field == 'balance' %}💰 Balance
-                                {% elif field == 'products_number' %}📦 Number of Products
-                                {% elif field == 'estimated_salary' %}💵 Estimated Salary
+                                {% if field == 'credit_score' %}Credit Score
+                                {% elif field == 'age' %}Age
+                                {% elif field == 'tenure' %}Tenure (Years)
+                                {% elif field == 'balance' %}Balance
+                                {% elif field == 'products_number' %}Number of Products
+                                {% elif field == 'estimated_salary' %}Estimated Salary
                                 {% endif %}
                             </label>
                             <input type="number" 
@@ -57,7 +57,7 @@
                         {% endfor %}
 
                         <div class="col-md-6">
-                            <label class="form-label">🌍 Country</label>
+                            <label class="form-label">Country</label>
                             <select name="country" class="form-select" required>
                                 <option value="">Select Country</option>
                                 <option value="France">🇫🇷 France</option>
@@ -70,13 +70,13 @@
                             <label class="form-label">👤 Gender</label>
                             <select name="gender" class="form-select" required>
                                 <option value="">Select Gender</option>
-                                <option value="Male">👨 Male</option>
-                                <option value="Female">👩 Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
                             </select>
                         </div>
 
                         <div class="col-md-6">
-                            <label class="form-label">💳 Has Credit Card</label>
+                            <label class="form-label">Has Credit Card</label>
                             <select name="credit_card" class="form-select" required>
                                 <option value="">Select Option</option>
                                 <option value="1">✅ Yes</option>
@@ -85,7 +85,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label class="form-label">🎯 Active Member</label>
+                            <label class="form-label">Active Member</label>
                             <select name="active_member" class="form-select" required>
                                 <option value="">Select Option</option>
                                 <option value="1">✅ Yes</option>

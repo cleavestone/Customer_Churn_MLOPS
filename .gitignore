@@ -7,3 +7,4 @@ venv
 AzureCLI.msi
 azure-credentials.json
 --sku
+task-def.json

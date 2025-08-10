@@ -26,7 +26,7 @@ templates = Jinja2Templates(directory="templates")
 logged_model = configs['logged_model']
 
 # Load model as a PyFuncModel.
-model = mlflow.pyfunc.load_model(logged_model)
+model = joblib.load(logged_model)
 
 # load preprocessor
 preprocessor = joblib.load(configs['preprocessor_obj'])

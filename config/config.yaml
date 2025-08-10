@@ -19,7 +19,7 @@ processed_X_path_csv: 'data/processed/X_processed.csv'
 
 processed_y_path_csv: 'data/processed/y.csv'
 
-trained_model_path: 'artifacts/models/random_forest_model.pkl'
+#trained_model_path: 'artifacts/models/random_forest_model.pkl'
 
 columns_to_drop: customer_id
 
@@ -30,7 +30,7 @@ best_model:
     random_state: 42
     verbosity: -1
 
-logged_model: 'runs:/d3fa1277ff7e4af5b2aeae091a444551/model'
+logged_model: 'model/model.pkl'
 
 all_columns: ['credit_score', 'country', 'gender', 'age', 'tenure', 'balance','products_number', 'credit_card', 'active_member', 'estimated_salary']
 

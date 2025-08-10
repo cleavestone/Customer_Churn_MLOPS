@@ -26,22 +26,22 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
-      # Build Docker image
+      # Build Docker image locally with repo name and commit SHA
       - name: Build Docker image
         run: |
           docker build -t ${{ secrets.ECR_REPOSITORY }}:${{ github.sha }} .
 
-      # Tag image with full ECR registry URI
+      # Tag Docker image with full ECR URI (registry/repository:tag)
       - name: Tag Docker image
         run: |
           docker tag ${{ secrets.ECR_REPOSITORY }}:${{ github.sha }} ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}:${{ github.sha }}
 
-      # Push image to ECR
+      # Push Docker image to ECR
       - name: Push Docker image
         run: |
           docker push ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}:${{ github.sha }}
 
-      # Tag and push latest
+      # Tag and push the 'latest' image tag
       - name: Tag and push latest
         run: |
           docker tag ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}:${{ github.sha }} ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}:latest

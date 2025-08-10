@@ -20,3 +20,5 @@ uvicorn==0.23.2
 
 requests==2.32.4
 python-dotenv==1.0.1
+
+python-multipart

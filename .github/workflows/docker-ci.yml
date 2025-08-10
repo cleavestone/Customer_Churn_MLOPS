@@ -1,4 +1,4 @@
-name: CI/CD - Build and Push to Azure Container Registry
+name: CI/CD - Build and Push to AWS ECR
 
 on:
   push:
@@ -13,23 +13,36 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Login to Azure Container Registry
-        uses: azure/docker-login@v1
+      # Configure AWS credentials
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
-          login-server: ${{ secrets.ACR_LOGIN_SERVER }}
-          username: ${{ secrets.ACR_USERNAME }}
-          password: ${{ secrets.ACR_PASSWORD }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
+      # Login to Amazon ECR
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      # Build Docker image
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/my-app:${{ github.sha }} .
+          docker build -t ${{ secrets.ECR_REPOSITORY }}:${{ github.sha }} .
 
-      - name: Push Docker image to ACR
+      # Tag image with full ECR registry URI
+      - name: Tag Docker image
         run: |
-          docker push ${{ secrets.ACR_LOGIN_SERVER }}/my-app:${{ github.sha }}
+          docker tag ${{ secrets.ECR_REPOSITORY }}:${{ github.sha }} ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}:${{ github.sha }}
 
+      # Push image to ECR
+      - name: Push Docker image
+        run: |
+          docker push ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}:${{ github.sha }}
+
+      # Tag and push latest
       - name: Tag and push latest
         run: |
-          docker tag ${{ secrets.ACR_LOGIN_SERVER }}/my-app:${{ github.sha }} ${{ secrets.ACR_LOGIN_SERVER }}/my-app:latest
-          docker push ${{ secrets.ACR_LOGIN_SERVER }}/my-app:latest
-
+          docker tag ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}:${{ github.sha }} ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}:latest
+          docker push ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}:latest

@@ -1,4 +1,4 @@
-# 🧠 Customer Churn Prediction – End-to-End MLOps Project
+## 🧠 Customer Churn Prediction – End-to-End MLOps Project
 
 ![App Demo](static/video/churn_demo.gif)
 
